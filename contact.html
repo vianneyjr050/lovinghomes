@@ -1,0 +1,96 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="contact.css">
+ </head>
+<body>
+    <nav>
+   <div class="brand">
+      <div class="brand-logo">
+       <img src="IMAGES/dog2.png" alt="Loving Homes Logo" />
+      </div>
+      <span class="brand-name">Loving Homes</span>
+    </div>
+    </div>
+
+     <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul class="nav-links">
+      <li><a href="lovinghomes.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  
+  <div class="contact-wrapper" id="contact-form">
+    <h2>Contact Form</h2>
+    <div class="contact-card">
+      <input type="email" id="emailInput" placeholder="Enter your email" />
+      <textarea id="messageInput" placeholder="Leave a message"></textarea>
+      <div class="error-msg" id="errorMsg">Please fill in both fields.</div>
+      <a class="call-btn" href="tel:+256705261999">CALL &nbsp; +256 705261999</a>
+      <button class="send-btn" id="sendBtn" onclick="sendMessage()">SEND</button>
+      <div class="success-msg" id="successMsg">Message sent successfully!</div>
+    </div>
+  </div>
+
+  <script>
+    function sendMessage() {
+      const email = document.getElementById('emailInput').value.trim();
+      const message = document.getElementById('messageInput').value.trim();
+      const errorMsg = document.getElementById('errorMsg');
+      const successMsg = document.getElementById('successMsg');
+      const sendBtn = document.getElementById('sendBtn');
+
+      errorMsg.style.display = 'none';
+      successMsg.style.display = 'none';
+
+      if (!email || !message) {
+        errorMsg.style.display = 'block';
+        return;
+      }
+
+      const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      if (!emailValid) {
+        errorMsg.textContent = 'Please enter a valid email address.';
+        errorMsg.style.display = 'block';
+        return;
+      }
+
+      sendBtn.disabled = true;
+      sendBtn.textContent = 'Sending...';
+
+      setTimeout(() => {
+        successMsg.style.display = 'block';
+        sendBtn.textContent = 'SEND';
+        sendBtn.disabled = false;
+        document.getElementById('emailInput').value = '';
+        document.getElementById('messageInput').value = '';
+      }, 1500);
+    }
+
+    const burger = document.getElementById('burger');
+const navLinks = document.getElementById('nav-links');
+burger.addEventListener('click', () => {
+const isOpen = navLinks.classList.toggle('open');
+burger.classList.toggle('active', isOpen);
+burger.setAttribute('aria-expanded', isOpen);
+});
+navLinks.querySelectorAll('a').forEach(link => {
+link.addEventListener('click', () => {
+navLinks.classList.remove('open');
+burger.classList.remove('active');
+burger.setAttribute('aria-expanded', false);
+});
+   });
+  </script>
+ </body>
+ </html>

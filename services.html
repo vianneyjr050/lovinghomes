@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <link rel="stylesheet" href="services.css">
+</head>
+<body>
+  <nav>
+   <div class="brand">
+      <div class="brand-logo">
+       <img src="IMAGES/dog2.png" alt="Loving Homes Logo" />
+      </div>
+      <span class="brand-name">Loving Homes</span>
+    </div>
+    </div>
+
+     <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul class="nav-links">
+      <li><a href="lovinghomes.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page active" id="page1">
+    <div class="pg1">
+      <h1>Our Services</h1>
+      <div class="service-grid">
+        <div class="service-col">
+          <span class="pkg-name">Premium Package</span>
+          <button class="see-more-btn" onclick="goTo('page2')">See More</button>
+        </div>
+        <div class="service-col">
+          <span class="pkg-name">Classic Package</span>
+          <button class="see-more-btn" onclick="goTo('page2')">See More</button>
+        </div>
+
+        <div class="service-col">
+          <span class="pkg-name">Day Package</span>
+          <button class="see-more-btn" onclick="goTo('page2')">See More</button>
+        </div>
+
+         <div class="service-col">
+          <span class="pkg-name">Custom Package</span>
+         <a class="contact-btn" href="contact.html#contact-form">CONTACT US</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="page" id="page2">
+
+
+    <div class="pg2">
+      <button class="back-btn" onclick="goTo('page1')">← Back</button>
+      <div class="cards-wrap">
+        <div class="card">
+          <div class="card-title">Premium Package</div>
+          <div class="features">
+            <div class="feature">Four walks/activities per day</div>
+            <div class="feature">Private grass area</div>
+            <div class="feature">Daily photos</div>
+            <div class="feature">Daily treats</div>
+          </div>
+          <button class="price-btn" onclick="goTo('page3')">300 USD</button>
+        </div>
+        <div class="card">
+          <div class="card-title">Classical Package</div>
+          <div class="features">
+            <div class="feature">Three walks/activities per day</div>
+            <div class="feature">In door play burn</div>
+            <div class="feature">Zen zone</div>
+            <div class="feature">Grooming session</div>
+          </div>
+          <button class="price-btn" onclick="goTo('page3')">150 USD</button>
+        </div>
+        <div class="card">
+          <div class="card-title">Day Package</div>
+          <div class="features">
+            <div class="feature">Two walks/activities per day</div>
+            <div class="feature">External play area</div>
+            <div class="feature">Agility track</div>
+            <div class="feature">Sand digging the pit</div>
+          </div>
+          <button class="price-btn" onclick="goTo('page3')">75 USD</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page" id="page3">
+    <div class="pg3">
+      <button class="back-btn" onclick="goTo('page2')">← Back</button>
+      <div class="reservation-form">
+        <h2>Reserve Your Package</h2>
+ 
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" placeholder="Enter your name" />
+ 
+        <label for="phoneNumber">Phone Number</label>
+        <input type="tel" id="phoneNumber" placeholder="Enter your phone" />
+ 
+        <label for="checkin">Check-in Date</label>
+        <input type="date" id="checkin" />
+ 
+        <label for="checkout">Check-out Date</label>
+        <input type="date" id="checkout" />
+ 
+        <button class="submit-btn" onclick="submitReservation()">Confirm Reservation</button>
+      </div>
+    </div>
+  </div>
+ 
+ 
+ <script>
+  function goTo(pageId) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(pageId).classList.add('active');
+  }
+
+  const burger = document.getElementById('burger');
+  const navLinks = document.getElementById('nav-links');
+
+  burger.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    burger.classList.toggle('active', isOpen);
+    burger.setAttribute('aria-expanded', isOpen);
+  });
+
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      burger.classList.remove('active');
+      burger.setAttribute('aria-expanded', false);
+    });
+  });
+
+  function submitReservation() {
+    var fullName = document.getElementById('fullName').value.trim();
+    var phoneNumber = document.getElementById('phoneNumber').value.trim();
+    var checkinVal = document.getElementById('checkin').value;
+    var checkoutVal = document.getElementById('checkout').value;
+
+    if (fullName === '' || phoneNumber === '' || checkinVal === '' || checkoutVal === '') {
+      alert('Please fill in all fields before confirming.');
+      return;
+    }
+
+    var checkinDate = new Date(checkinVal);
+    var checkoutDate = new Date(checkoutVal);
+
+    if (checkoutDate <= checkinDate) {
+      alert('Check-out date must be after check-in date.');
+      return;
+    }
+
+    alert('Reservation Confirmed! We will contact you shortly.');
+  }
+</script>
+ 
+</body>
+</html>

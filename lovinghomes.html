@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOVING HOMES</title>
+    <link rel="stylesheet" href="lovinghomes.css">
+</head>
+<body>
+     <nav>
+   <div class="brand">
+      <div class="brand-logo">
+       <img src="IMAGES/dog2.png" alt="Loving Homes Logo" />
+      </div>
+      <span class="brand-name">Loving Homes</span>
+    </div>
+    </div>
+
+     <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <img src="IMAGES/DOG 1.jpg" class="hero-dog" alt="Dog running" />
+    <div class="hero-text">
+      <h1>
+        A <span class="accent">HOME</span> FOR<br>
+        YOUR DOG<br>
+        <span class="accent">AWAY</span> FROM<br>
+        HOME
+      </h1>
+    </div>
+  </section>
+
+  <section class="about">
+  <div class="about-image-wrap">
+    <img src="IMAGES/hdog.jpg" alt="Happy dog at Loving Homes" />
+  </div>
+
+  <div class="about-content">
+    <span class="about-tag">About Us</span>
+    <h2>We treat every dog<br>like <span class="accent">family</span></h2>
+    <p>At Loving Homes, we believe every dog deserves a warm, safe, and joyful place to stay. Whether you're away for a day or a week, we provide the care, love, and attention your furry friend deserves.</p>
+    <p>Our team of certified pet lovers is dedicated to making sure tails are always wagging. From cozy sleeping spaces to daily walks and play sessions, your dog is in the best hands.</p>
+
+    <div class="about-stats">
+      <div class="stat-card">
+        <div class="stat-num">500<span>+</span></div>
+        <div class="stat-label">Happy dogs hosted</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">5<span>★</span></div>
+        <div class="stat-label">Average rating</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">3<span>yrs</span></div>
+        <div class="stat-label">Years of experience</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">24<span>/7</span></div>
+        <div class="stat-label">Care & support</div>
+      </div>
+    </div>
+
+    <section class="consider">
+    <div class="consider-header">
+      <span class="about-tag">Before You Book</span>
+      <h2>What to <span class="accent">Consider</span></h2>
+      <p>Make sure your dog has the best possible stay by keeping these in mind.</p>
+    </div>
+    <div class="consider-grid">
+      <div class="consider-card">
+        <div class="consider-icon"></div>
+        <h3>Your Dog's Temperament</h3>
+        <p>Let us know if your dog is shy, energetic, or needs extra attention. We tailor care to every personality.</p>
+      </div>
+      <div class="consider-card">
+        <div class="consider-icon"></div>
+        <h3>Vaccinations</h3>
+        <p>Ensure your dog is up to date on core vaccines including rabies, distemper, and parvovirus before their stay.</p>
+      </div>
+      <div class="consider-card">
+        <div class="consider-icon"></div>
+        <h3>Diet & Feeding Schedule</h3>
+        <p>Share your dog's regular diet, portion sizes, and feeding times so we can maintain their routine.</p>
+      </div>
+      <div class="consider-card">
+        <div class="consider-icon"></div>
+        <h3>Medications & Allergies</h3>
+        <p>Inform us of any medications, supplements, or allergies so we can provide safe and proper care.</p>
+      </div>
+      <div class="consider-card">
+        <div class="consider-icon"></div>
+        <h3>Comfort Items</h3>
+        <p>Feel free to bring a familiar toy or blanket familiar scents help your dog feel right at home.</p>
+      </div>
+      <div class="consider-card">
+        <div class="consider-icon"></div>
+        <h3>Emergency Contact</h3>
+        <p>Provide a reachable contact number and your vet's details in case of any urgent situation.</p>
+      </div>
+    </div>
+  </section>
+
+  </div> <!-- close about-content -->
+  </section> <!-- close about -->
+
+  <footer>
+    Lovinghomes&copy;Copyright
+  </footer>
+
+<script>
+const burger = document.getElementById('burger');
+const navLinks = document.getElementById('nav-links');
+burger.addEventListener('click', () => {
+const isOpen = navLinks.classList.toggle('open');
+burger.classList.toggle('active', isOpen);
+burger.setAttribute('aria-expanded', isOpen);
+});
+navLinks.querySelectorAll('a').forEach(link => {
+link.addEventListener('click', () => {
+navLinks.classList.remove('open');
+burger.classList.remove('active');
+burger.setAttribute('aria-expanded', false);
+});
+   });
+  </script>
+
+</body>
+</html>
+</body>
+</html>

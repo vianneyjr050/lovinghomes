@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+  <link rel="stylesheet" href="products.css">
+</head>
+<body>
+    
+<nav>
+   <div class="brand">
+      <div class="brand-logo">
+       <img src="IMAGES/dog2.png" alt="Loving Homes Logo" />
+      </div>
+      <span class="brand-name">Loving Homes</span>
+    </div>
+    </div>
+
+     <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul class="nav-links">
+      <li><a href="lovinghomes.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+   <div class="product-container">
+    <div class="product-card">
+        <img src="IMAGES/dogbed.jpg" alt="" class="product-image">
+        <div class="product-title">Fiber Dog Carpet</div>
+        <p class="product-description">Helps protect floors while giving dogs a comfortable place to sit or sleep.</p>
+        <button class="pay-button" onclick="openPayment('Fiber Dog Carpet', 20)">20 USD</button>
+    </div>
+
+    <div class="product-card">
+        <img src="IMAGES/dogchain.jpg" alt="Dog Chain" class="product-image">
+        <div class="product-title">Dog Chain</div>
+        <p class="product-description">It provides control and durability, especially for strong or active dogs.</p>
+        <button class="pay-button" onclick="openPayment('Dog Chain', 15)">15 USD</button>
+    </div>
+
+    <div class="product-card">
+        <img src="IMAGES/dogshoe.jpg" alt="Dog Boots" class="product-image">
+        <div class="product-title">Dog Boots</div>
+        <p class="product-description">Protective footwear for dogs that shields paws from heat and cold.</p>
+        <button class="pay-button" onclick="openPayment('Dog Boots', 10)">10 USD</button>
+    </div>
+</div>
+
+
+<div id="payment-form" style="display: none; max-width: 400px; margin: 40px auto; padding: 20px; border: 2px solid #333; border-radius: 10px; font-family: Arial, sans-serif;">
+    <h2>Checkout</h2>
+    <p>Selected: <strong id="item-name"></strong></p>
+    <p>Total: <strong>$<span id="item-price"></span></strong></p>
+    <hr>
+    <form>
+        <label>Full Name</label><br>
+        <input type="text" style="width:100%; margin-bottom:10px;" required><br>
+        <label>Card Number</label><br>
+        <input type="text" placeholder="0000 0000 0000 0000" style="width:100%; margin-bottom:10px;" required><br>
+        <button type="submit" style="width:100%; padding:10px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            Confirm Payment
+        </button>
+    </form>
+</div>
+<script>
+    function openPayment(name, price) {
+        // Show the payment div
+        const paymentSection = document.getElementById('payment-form');
+        paymentSection.style.display = 'block';
+
+        // Update the text inside the payment div
+        document.getElementById('item-name').innerText = name;
+        document.getElementById('item-price').innerText = price;
+
+        // Automatically scroll the user down to the form
+        paymentSection.scrollIntoView({ behavior: 'smooth' });
+
+        const burger = document.getElementById('burger');
+const navLinks = document.getElementById('nav-links');
+burger.addEventListener('click', () => {
+const isOpen = navLinks.classList.toggle('open');
+burger.classList.toggle('active', isOpen);
+burger.setAttribute('aria-expanded', isOpen);
+});
+navLinks.querySelectorAll('a').forEach(link => {
+link.addEventListener('click', () => {
+navLinks.classList.remove('open');
+burger.classList.remove('active');
+burger.setAttribute('aria-expanded', false);
+});
+   });
+    }
+</script>
+</body>
+</html>
